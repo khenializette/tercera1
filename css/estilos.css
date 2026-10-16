@@ -125,9 +125,17 @@ img { max-width: 100%; height: auto; }
   border-bottom: 1px solid #ddd;
   cursor: pointer;
 }
+.header { flex-wrap: wrap; }          /* el menú abierto baja a otra línea */
+.menu { width: 100%; }
+.menu.abierto { display: block; }
+.menu.abierto ul { flex-direction: column; padding-top: 1rem; }
 
 .accordion .contenido { display: none; padding: 0 1rem; }
 .accordion .item.activo .contenido { display: block; }
+
+.hamburguesa.activo span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+.hamburguesa.activo span:nth-child(2) { opacity: 0; }
+.hamburguesa.activo span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
 
 @media (min-width: 701px) { .tarjeta { width: calc(50% - .5rem); } }
 @media (min-width: 991px) { .tarjeta { width: calc(33.333% - .67rem); } }
@@ -153,4 +161,7 @@ img { max-width: 100%; height: auto; }
   .menu { display: block; }       /* menú normal en pantalla grande */
   .hamburguesa { display: none; }
   .portada h1 { font-size: 2.6rem; }
+  .menu { display: block; width: auto; }   /* siempre visible en escritorio */
+.hamburguesa { display: none; }
+.menu.abierto ul { flex-direction: row; padding-top: 0; }
 }
